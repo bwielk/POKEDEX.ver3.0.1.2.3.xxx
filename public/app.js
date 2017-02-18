@@ -64,14 +64,25 @@ var app = function(){
     num_name.style.cssText = "font-size: 200%; margin: 1% 0% 1% 5%";
     var type = document.createElement('h2');
     type.style.cssText = "font-size: 200%; margin: 1% 0% 1% 5%";
+    var height = document.createElement('h2');
+    height.style.cssText = "font-size: 170%; margin: 1% 0% 1% 5%";
+    var weight = document.createElement('h2');
+    weight.style.cssText = "font-size: 170%; margin: 1% 0% 1% 5%";
+    var exp = document.createElement('h2');
+    exp.style.cssText = "font-size: 170%; margin: 1% 0% 1% 5%";
 
     var populateDetails = function(details){
       num_name.innerText = "";
       num_name.innerText = "#" + details.id + " " + details.name.toUpperCase() + "";
       type.innerText = "Type: " + this.typesOfPokemon(details) + "";
+      height.innerText = "Height: " + details.height;
+      weight.innerText = "Weight: " + details.weight;
+      exp.innerText = "Base experience: " + details.base_experience;
       basicInfo.appendChild(num_name);
       basicInfo.appendChild(type);
-
+      basicInfo.appendChild(height);
+      basicInfo.appendChild(weight);
+      basicInfo.appendChild(exp);
     }
 
     list.onchange = getPokemon;
