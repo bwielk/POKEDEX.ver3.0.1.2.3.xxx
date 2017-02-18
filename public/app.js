@@ -2,7 +2,7 @@
 
 var app = function(){
 
-  var populateDropdown = function(array){
+  var handleDropdown = function(array){
 
     var list = document.getElementById('list');
     var indexNum = 251;
@@ -18,6 +18,31 @@ var app = function(){
         indexNum ++;
       }
     }
+
+    var view = document.getElementById('display');
+
+    var getDetailsRequest = function(url, callback){
+      var request = new XMLHttpRequest();
+      request.open("GET", url);
+      request.onload = callback;
+      request.send();
+    }
+
+    var completeRequest = function(){
+      if(this.status != 200) return;
+      var jsonString = this.responseText;
+      var pokemonDetails = JSON.parse(jsonString);
+      console.log(pokemonDetails);
+    }
+
+    var getPokemon = function(){
+      var pokemon = array[this.value];
+      var pokeurl = pokemon.url;
+      getDetailsRequest(pokeurl, completeRequest);
+    }
+
+    list.onchange = getPokemon;
+
   }
 
   var makeRequest = function(url, callback){
@@ -32,14 +57,11 @@ var app = function(){
     var jsonString = this.responseText;
     var pokemons = JSON.parse(jsonString);
     var array = pokemons.results;
-    console.log(array[0].name);
-    populateDropdown(array);
-
+    handleDropdown(array);
   }
 
   var url = "http://pokeapi.co/api/v2/pokemon/?limit=386";
   makeRequest(url, completeRequest);
 }
-console.log(document.getElementById('list'));
 
 window.onload = app
