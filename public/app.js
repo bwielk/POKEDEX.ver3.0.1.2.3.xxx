@@ -35,10 +35,17 @@ var app = function(){
       console.log(pokemonDetails);
     }
 
+    var img = document.getElementById('image');
+    var genImage = document.createElement('img');
+    genImage.style.cssText = "max-width: 200px; max-height: 200px";
+    
     var getPokemon = function(){
+      genImage.src = "";
       var pokemon = array[this.value];
       var pokeurl = pokemon.url;
       getDetailsRequest(pokeurl, completeRequest);
+      genImage.src = "https://img.pokemondb.net/artwork/" + pokemon.name +".jpg";
+      image.appendChild(genImage);
     }
 
     list.onchange = getPokemon;

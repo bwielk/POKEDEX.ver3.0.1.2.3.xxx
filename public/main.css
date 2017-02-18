@@ -19,10 +19,9 @@ body{
   border: 1px solid black;
   float: right;
   width: 50%;
-  height: 500px;
+  height: 475px;
   margin: 1% 4%;
-  background-color: grey;
-  opacity: 0.4;
+  background-color: rgba(54, 25, 25, .5);
 }
 
 #image{
@@ -30,4 +29,26 @@ body{
   height: 200px;
   border: 1px solid black;
   margin: 2% 0% 0% 2%;
+  background-color: white;
+  opacity: 1;
+  float: left;
+}
+
+#basic_info{
+  height: 200px;
+  width: 330px;
+  margin: 2% 2% 0% 2%;
+  border: 2px solid white;
+  float: right;
+}
+
+#top{
+  height: 230px;
+  border: 1px solid red;
+}
+
+#bottom{
+  height: 230px;
+  margin: 2% 0% 0% 0%;
+  border: 1px solid black;
 }
