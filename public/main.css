@@ -1,0 +1,33 @@
+body{
+  background-image: url("http://more-sky.com/data/out/7/IMG_147607.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#header{
+  font-size: 80%;
+  color: white;
+  width: 40%;
+  text-align: center;
+  margin: auto;
+  font-family: Caveat Brush;
+  float: left;
+  letter-spacing: 0.1em;
+}
+
+#display{
+  border: 1px solid black;
+  float: right;
+  width: 50%;
+  height: 500px;
+  margin: 1% 4%;
+  background-color: grey;
+  opacity: 0.4;
+}
+
+#image{
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  margin: 2% 0% 0% 2%;
+}
