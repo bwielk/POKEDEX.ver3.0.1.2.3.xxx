@@ -19,7 +19,7 @@ body{
   border: 1px solid black;
   float: right;
   width: 50%;
-  height: 475px;
+  height: 470px;
   margin: 1% 4%;
   background-color: rgba(54, 25, 25, .5);
 }
@@ -36,10 +36,12 @@ body{
 
 #basic_info{
   height: 200px;
-  width: 330px;
+  min-width: 330px;
   margin: 2% 2% 0% 2%;
   border: 2px solid white;
   float: right;
+  color: white;
+  font-family: Caveat Brush;
 }
 
 #top{

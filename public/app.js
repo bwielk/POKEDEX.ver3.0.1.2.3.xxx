@@ -1,4 +1,15 @@
-
+// var typesOfPokemon = function(object){
+//   var types = object.types
+//   var typesString = "";
+//   for(var i = 0; i<types.length; i++){
+//     if(types.length > 1){
+//       typesString += types[i].type.name + ", ";
+//     }else{
+//       typesString += types[i].type.name;
+//     }
+//   }
+//   return typesString;
+// }
 
 var app = function(){
 
@@ -7,6 +18,9 @@ var app = function(){
     var list = document.getElementById('list');
     var indexNum = 251;
 
+    var img = document.getElementById('image');
+    var genImage = document.createElement('img');
+    genImage.style.cssText = "max-width: 200px; max-height: 200px";
 
     for(var pokemon of array){
       if(array.indexOf(pokemon) >= 251){
@@ -32,12 +46,9 @@ var app = function(){
       if(this.status != 200) return;
       var jsonString = this.responseText;
       var pokemonDetails = JSON.parse(jsonString);
+      populateDetails(pokemonDetails);
       console.log(pokemonDetails);
-    }
-
-    var img = document.getElementById('image');
-    var genImage = document.createElement('img');
-    genImage.style.cssText = "max-width: 200px; max-height: 200px";
+      }
     
     var getPokemon = function(){
       genImage.src = "";
@@ -46,6 +57,19 @@ var app = function(){
       getDetailsRequest(pokeurl, completeRequest);
       genImage.src = "https://img.pokemondb.net/artwork/" + pokemon.name +".jpg";
       image.appendChild(genImage);
+    }
+
+    var basicInfo = document.getElementById('basic_info');
+    var num_name = document.createElement('h1');
+    num_name.style.cssText = "font-size: 200%; margin: 1% 0% 1% 5%";
+    var type = document.createElement('h2');
+
+    var populateDetails = function(details){
+      num_name.innerText = "";
+      num_name.innerText = "#" + details.id + " " + details.name.toUpperCase() + "";
+      basicInfo.appendChild(num_name);
+      basicInfo.appendChild(type);
+
     }
 
     list.onchange = getPokemon;
