@@ -7,13 +7,16 @@ var app = function(){
     var list = document.getElementById('list');
     var indexNum = 251;
 
-    for(pokemon in array){
-      var newOption = document.createElement('option');
-      newOption.value = indexNum;
-      newOption.name = array[indexNum].name;
-      newOption.innerText = array[indexNum].name;
-      list.appendChild(newOption);
-      indexNum ++;
+
+    for(var pokemon of array){
+      if(array.indexOf(pokemon) >= 251){
+        var newOption = document.createElement('option');
+        newOption.value = indexNum;
+        newOption.name = pokemon.name;
+        newOption.innerText = pokemon.name;
+        list.appendChild(newOption);
+        indexNum ++;
+      }
     }
   }
 
@@ -29,12 +32,14 @@ var app = function(){
     var jsonString = this.responseText;
     var pokemons = JSON.parse(jsonString);
     var array = pokemons.results;
-    console.log(array[255].name);
+    console.log(array[0].name);
     populateDropdown(array);
+
   }
 
   var url = "http://pokeapi.co/api/v2/pokemon/?limit=386";
   makeRequest(url, completeRequest);
 }
+console.log(document.getElementById('list'));
 
 window.onload = app
