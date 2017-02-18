@@ -1,15 +1,15 @@
-// var typesOfPokemon = function(object){
-//   var types = object.types
-//   var typesString = "";
-//   for(var i = 0; i<types.length; i++){
-//     if(types.length > 1){
-//       typesString += types[i].type.name + ", ";
-//     }else{
-//       typesString += types[i].type.name;
-//     }
-//   }
-//   return typesString;
-// }
+var typesOfPokemon = function(object){
+  var types = object.types;
+  var typesString = [];
+  for(var i = 0; i<types.length; i++){
+    if(types.length > 1){
+      typesString.push(types[i].type.name);
+    }else{
+      return types[i].type.name;
+    }
+  }
+  return typesString.join(", ");
+}
 
 var app = function(){
 
@@ -63,10 +63,12 @@ var app = function(){
     var num_name = document.createElement('h1');
     num_name.style.cssText = "font-size: 200%; margin: 1% 0% 1% 5%";
     var type = document.createElement('h2');
+    type.style.cssText = "font-size: 200%; margin: 1% 0% 1% 5%";
 
     var populateDetails = function(details){
       num_name.innerText = "";
       num_name.innerText = "#" + details.id + " " + details.name.toUpperCase() + "";
+      type.innerText = "Type: " + this.typesOfPokemon(details) + "";
       basicInfo.appendChild(num_name);
       basicInfo.appendChild(type);
 
