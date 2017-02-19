@@ -15,7 +15,7 @@ body{
 }
 #header{
   font-size: 80%;
-  color: white;
+  color: black;
   width: 36%;
   text-align: center;
   margin: auto;
@@ -26,7 +26,7 @@ body{
 }
 
 #display{
-  /*border*/: 1px solid black;
+  border: 1px solid black;
   float: right;
   width: 50%;
   height: 460px;
@@ -36,8 +36,8 @@ body{
 }
 
 #image{
-  width: 200px;
-  height: 200px;
+  width: 210px;
+  height: 210px;
   /*border*/: 1px solid black;
   margin: 2% 0% 0% 2%;
   background-color: white;
@@ -46,10 +46,10 @@ body{
 }
 
 #basic_info{
-  height: 200px;
-  min-width: 330px;
+  min-height: 210px;
+  width: 330px;
   margin: 2% 2% 0% 2%;
-  /*border*/: 2px solid white;
+  border: 2px solid white;
   float: right;
   color: white;
   font-family: Caveat Brush;
@@ -58,7 +58,8 @@ body{
 
 #top{
   height: 230px;
-  /*border*/: 1px solid red;
+  border: 1px solid red;
+  margin-bottom: 0;
 }
 
 #bottom{
@@ -96,12 +97,12 @@ body{
 }
 
 #abls{
-  height: 35px;
-  /*border*/: 1px solid yellow;
-  width: 545px;
-  margin: 0% auto;
-  background-color: rgba(48, 41, 27, 0.72);
-}
+   height: 35px;
+   /*border*/: 1px solid yellow;
+   width: 545px;
+   margin: 0% auto;
+   background-color: rgba(48, 41, 27, 0.72);
+ }
 
 .footer{
   clear: both;
@@ -109,5 +110,20 @@ body{
   background-color: rgb(48, 41, 27);
   height: 85px;
   width: 100%;
+}
+
+#dropdown{
+  background-color: rgba(48, 41, 27, 0.72);
+  height: 100px;
+  width: 300px;
+  color: white;
+  margin: 0% auto;
+  margin-top: 24%;
+}
+
+#list select{
+  width: 180px;
+  font-size: 110%;
+  background-color: black;
 }
 

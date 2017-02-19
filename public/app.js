@@ -50,6 +50,68 @@ var moves = function(object){
   return p.innerText = movesArr.join(", ");
 }
 
+var favbrand = function(object){
+  var types = object.types;
+  var brandsArr = [];
+  for(var i = 0; i< types.length; i++){
+    var type = types[i].type.name;
+    switch(type){
+      case "normal":
+      brandsArr.push("Michael Kors");
+      break
+      case "fire":
+      brandsArr.push("Jean Paul Gaultier");
+      break
+      case "flying":
+      brandsArr.push("Alberta Ferretti");
+      break
+      case "fighting":
+      brandsArr.push("Alexander Wang");
+      break
+      case "water":
+      brandsArr.push("Valentino");
+      break
+      case "grass":
+      brandsArr.push("Stella McCartney");
+      break
+      case "poison":
+      brandsArr.push("Balenciaga");
+      break
+      case "ground":
+      brandsArr.push("Balmain");
+      break
+      case "psychic":
+      brandsArr.push("Alexander McQueen");
+      break
+      case "rock":
+      brandsArr.push("Givenchy");
+      break
+      case "ice":
+      brandsArr.push("Fendi");
+      break
+      case "bug":
+      brandsArr.push("Gucci");
+      break
+      case "dragon":
+      brandsArr.push("Saint Laurent");
+      break
+      case "ghost":
+      brandsArr.push("Chanel");
+      break
+      case "dark":
+      brandsArr.push("Rick Owens");
+      break
+      case "steel":
+      brandsArr.push("Dior");
+      break
+      case "fairy":
+      brandsArr.push("Prada");
+      break
+    }
+  }
+  return brandsArr.join(', ');
+}
+
 var app = function(){
 
   var handleDropdown = function(array){
@@ -66,7 +128,7 @@ var app = function(){
         var newOption = document.createElement('option');
         newOption.value = indexNum;
         newOption.name = pokemon.name;
-        newOption.innerText = pokemon.name;
+        newOption.innerText =  "#" + (indexNum + 1) + " " + pokemon.name.toUpperCase() + "";
         list.appendChild(newOption);
         indexNum ++;
       }
@@ -100,21 +162,24 @@ var app = function(){
 
     var basicInfo = document.getElementById('basic_info');
     var furtherInfo = document.getElementById('bottom');
+    var ablscont = document.getElementById('ablscont');
     var ablsfield = document.getElementById('abls');
     var statfield = document.getElementById('statistics');
     var movesfield = document.getElementById('moves');
     var num_name = document.createElement('h1');
-    num_name.style.cssText = "font-size: 200%; margin: 1% 0% 1% 5%";
+    num_name.style.cssText = "font-size: 160%; margin: 1% 0% 1% 5%";
     var type = document.createElement('h2');
-    type.style.cssText = "font-size: 200%; margin: 1% 0% 1% 5%";
+    type.style.cssText = "font-size: 140%; margin: 1% 0% 1% 5%";
     var height = document.createElement('h2');
-    height.style.cssText = "font-size: 170%; margin: 1% 0% 1% 5%";
+    height.style.cssText = "font-size: 120%; margin: 1% 0% 1% 5%";
     var weight = document.createElement('h2');
-    weight.style.cssText = "font-size: 170%; margin: 1% 0% 1% 5%";
+    weight.style.cssText = "font-size: 120%; margin: 1% 0% 1% 5%";
     var exp = document.createElement('h2');
-    exp.style.cssText = "font-size: 170%; margin: 1% 0% 1% 5%";
+    exp.style.cssText = "font-size: 120%; margin: 1% 0% 1% 5%;";
+    var brand = document.createElement('p');
+    brand.style.cssText = "font-size: 120%; margin: 1% 0% 0% 5%";
     var abls = document.createElement('p');
-    abls.style.cssText = "font-size: 160%; margin: auto 0%; margin-left: 4%";
+    abls.style.cssText = "font-size: 160%; margin: auto 0%; margin-left: 5%";
     var movespar = document.createElement('p');
     movespar.style.cssText = "font-size: 160%; margin: 1% 0% 1% 5%";
 
@@ -125,11 +190,13 @@ var app = function(){
       height.innerText = "Height: " + details.height;
       weight.innerText = "Weight: " + details.weight;
       exp.innerText = "Base experience: " + details.base_experience;
+      brand.innerText = "Favourite brand: " + this.favbrand(details);
       basicInfo.appendChild(num_name);
       basicInfo.appendChild(type);
       basicInfo.appendChild(height);
       basicInfo.appendChild(weight);
       basicInfo.appendChild(exp);
+      basicInfo.appendChild(brand);
 
       abls.innerText = "Abilities : " + this.abilitiesOfPokemon(details);
       ablsfield.appendChild(abls);
