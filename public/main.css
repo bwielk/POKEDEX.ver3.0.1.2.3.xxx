@@ -1,33 +1,44 @@
+html, body{
+  margin: 0;
+  padding:0;
+}
+
 body{
   background-image: url("http://more-sky.com/data/out/7/IMG_147607.png");
   background-size: cover;
   background-repeat: no-repeat;
+  height: 100%;
 }
-
+#container {
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
 #header{
   font-size: 80%;
   color: white;
-  width: 40%;
+  width: 36%;
   text-align: center;
   margin: auto;
   font-family: Caveat Brush;
   float: left;
   letter-spacing: 0.1em;
+  margin-left: 5%;
 }
 
 #display{
-  border: 1px solid black;
+  /*border*/: 1px solid black;
   float: right;
   width: 50%;
-  height: 470px;
+  height: 460px;
   margin: 1% 4%;
+  margin-bottom: 4%;
   background-color: rgba(54, 25, 25, .5);
 }
 
 #image{
   width: 200px;
   height: 200px;
-  border: 1px solid black;
+  /*border*/: 1px solid black;
   margin: 2% 0% 0% 2%;
   background-color: white;
   opacity: 1;
@@ -38,41 +49,65 @@ body{
   height: 200px;
   min-width: 330px;
   margin: 2% 2% 0% 2%;
-  border: 2px solid white;
+  /*border*/: 2px solid white;
   float: right;
   color: white;
   font-family: Caveat Brush;
+  background-color: rgba(48, 41, 27, 0.72);
 }
 
 #top{
   height: 230px;
-  border: 1px solid red;
+  /*border*/: 1px solid red;
 }
 
 #bottom{
-  height: 230px;
-  margin: 2% 0% 0% 0%;
-  border: 1px solid black;
+  height: 235px;
+  /*border*/: 1px solid black;
   color: white;
   font-family: Caveat Brush;
 }
 
 #stats{
-  border: 1px solid pink;
+  /*border*/: 1px solid pink;
 }
 
 #moves{
-  border: 1px solid yellow;
+  /*border*/: 1px solid yellow;
   float: right;
   color: white;
   font-family: Caveat Brush;
   width: 63%;
+  margin: 2% 2% 1% 0%;
+  height: 171px;
+  background-color: rgba(48, 41, 27, 0.72);
+
 }
 
 #statistics{
   color: white;
   font-family: Caveat Brush;
   float: left;
-  width: 35%;
-  border: 1px solid blue;
+  width: 30%;
+  /*border*/: 1px solid blue;
+  background-color: rgba(48, 41, 27, 0.72);
+  margin: 2% 0% 1% 2%;
+  height: 171px;
 }
+
+#abls{
+  height: 35px;
+  /*border*/: 1px solid yellow;
+  width: 545px;
+  margin: 0% auto;
+  background-color: rgba(48, 41, 27, 0.72);
+}
+
+.footer{
+  clear: both;
+  position:relative;
+  background-color: rgb(48, 41, 27);
+  height: 85px;
+  width: 100%;
+}
+

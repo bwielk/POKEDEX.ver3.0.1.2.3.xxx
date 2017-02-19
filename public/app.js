@@ -86,7 +86,7 @@ var app = function(){
       var jsonString = this.responseText;
       var pokemonDetails = JSON.parse(jsonString);
       populateDetails(pokemonDetails);
-      console.log(pokemonDetails.moves[1].move.name);
+      console.log(pokemonDetails);
       }
     
     var getPokemon = function(){
@@ -114,10 +114,9 @@ var app = function(){
     var exp = document.createElement('h2');
     exp.style.cssText = "font-size: 170%; margin: 1% 0% 1% 5%";
     var abls = document.createElement('p');
-    abls.style.cssText = "font-size: 160%; margin: 1% 0% 1% 5%";
+    abls.style.cssText = "font-size: 160%; margin: auto 0%; margin-left: 4%";
     var movespar = document.createElement('p');
     movespar.style.cssText = "font-size: 160%; margin: 1% 0% 1% 5%";
-
 
     var populateDetails = function(details){
       num_name.innerText = "";
@@ -139,7 +138,6 @@ var app = function(){
       statfield.appendChild(this.statistics(details));
       movesfield.appendChild(movespar);
 
-      
     }
 
     list.onchange = getPokemon;
