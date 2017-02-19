@@ -29,7 +29,7 @@ body{
   /*border*/: 1px solid black;
   float: right;
   width: 50%;
-  height: 460px;
+  height: 490px;
   margin: 1% 4%;
   margin-bottom: 4%;
   background-color: rgba(54, 25, 25, .5);
@@ -130,5 +130,18 @@ body{
 #buttonRandom{
   font-size: 110%;
   font-family: Caveat Brush;
+}
+
+#geolocation{
+  margin: auto;
+}
+
+#main-map { /*!!!!!!!!!!display!!!!!!!!!!!!!*/
+  width: 960px;
+  height: 200px;
+  border: 1px solid black;
+  margin: 0% auto;
+  clear: both;
+  display:none;
 }
 

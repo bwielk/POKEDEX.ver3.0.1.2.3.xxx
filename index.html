@@ -4,8 +4,13 @@
   <title>WELCOME TO POKEDEX 3.0!</title>
   <link rel="stylesheet" type="text/css" href="main.css">
   <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
-  <script type="text/javascript" src = "app.js"></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBAtC2mUV_01QuDzAgAgs3UYqENH-JYPY"></script> -->
+  <script type="text/javascript" src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCBAtC2mUV_01QuDzAgAgs3UYqENH-JYPY"></script>
+  <script type="text/javascript" src = "mapWrapper.js"></script>
+  <script type="text/javascript" src = "app.js"></script> 
+  
 </head>
+
 <body>
   <div id = "container">
     <div id = "header">
@@ -43,8 +48,10 @@
         </div>
       </div>
     </div>
+    <button id = "geolocation">WHERE'S THAT POKEMON?</button>
   </div>
 </div>
+<div id = "main-map"></div>
 <footer class = "footer">
   <p> </p>
 </footer>

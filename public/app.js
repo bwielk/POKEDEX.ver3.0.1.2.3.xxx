@@ -1,3 +1,5 @@
+//////////////////////////////////////////////////HELPER METHODS/////////////////////////////////////////////////////
+
 var createLatLang = function(object){
   var statistics = object.stats;
   var statsArr = [];
@@ -10,14 +12,17 @@ var createLatLang = function(object){
   var newcoords = [] 
   for(var coord of coords){
     if(coord.length > 6){
-      parseInt(coord);
-      newcoords.push(coord.slice(0,6));
+      coord = slice(0,6);
+      var newcoord = parseInt(coord)
+      newcoord = newcoord/10000;
+      newcoords.push(newcoord);
     }else{
-      newcoords.push(parseInt(coord));
+      var newcoord = parseInt(coord);
+      newcoord = newcoord/10000;
+      newcoords.push(newcoord);
     }
   }
-  console.log(typeof(coords[0]))
-  return newcoords;
+  return new google.maps.LatLng(newcoords[0], newcoords[1]);
 }
 
 
@@ -130,11 +135,14 @@ var favbrand = function(object){
       case "fairy":
       brandsArr.push("Prada");
       break
+      case "electric":
+      brandsArr.push("Versace");
+      break
     }
   }
   return brandsArr.join(', ');
 }
-
+/////////////////////////////////////////////////APP and its structure//////////////////////////////////////////////////
 var app = function(){
 
   var img = document.getElementById('image');
@@ -191,7 +199,7 @@ var app = function(){
     movesfield.appendChild(movespar);
   }
 
-
+////////////////////////////////////////////////RANDOM BUTTON///////////////////////////////////////////////////////
   var button = document.getElementById('randomPokemon');
 
   var handleButtonRandom = function(){
@@ -215,6 +223,8 @@ var app = function(){
   }
 
   button.onclick = handleButtonRandom;
+
+///////////////////////////////////////////////////////DROPDOWN////////////////////////////////////////////////////////
 
   var handleDropdown = function(array){
 
@@ -277,6 +287,25 @@ var app = function(){
 
   var url = "http://pokeapi.co/api/v2/pokemon/?limit=386";
   makeRequest(url, completeRequest);
+
+  /////////////////////////////////////////////////////////MAP//////////////////////////////////////////////////////
+
+  // var initializeMap = function(){
+  //   var container = document.getElementById('main-map');
+  //   var centre = {lat: 0, lng: 0};
+  //   var zoom = 18;
+  //   var map = new MapWrapper(container, centre, zoom);
+  //   map.addMarker(centre);
+  // }
+  // initializeMap();
+
+  // var locatePokemon = function(){
+
+  // }
+
+  // var geoButton = document.getElementById('geolocation');
+  // geoButton.onclick = locatePokemon;
+
 }
 
 window.onload = app
