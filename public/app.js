@@ -1,3 +1,4 @@
+
 var typesOfPokemon = function(object){
   var types = object.types;
   var typesArr = [];
@@ -114,14 +115,87 @@ var favbrand = function(object){
 
 var app = function(){
 
+  var img = document.getElementById('image');
+  var genImage = document.createElement('img');
+  genImage.style.cssText = "max-width: 200px; max-height: 200px";
+
+  var basicInfo = document.getElementById('basic_info');
+  var furtherInfo = document.getElementById('bottom');
+  var ablscont = document.getElementById('ablscont');
+  var ablsfield = document.getElementById('abls');
+  var statfield = document.getElementById('statistics');
+  var movesfield = document.getElementById('moves');
+  var num_name = document.createElement('h1');
+  num_name.style.cssText = "font-size: 160%; margin: 1% 0% 1% 5%";
+  var type = document.createElement('h2');
+  type.style.cssText = "font-size: 140%; margin: 1% 0% 1% 5%";
+  var height = document.createElement('h2');
+  height.style.cssText = "font-size: 120%; margin: 1% 0% 1% 5%";
+  var weight = document.createElement('h2');
+  weight.style.cssText = "font-size: 120%; margin: 1% 0% 1% 5%";
+  var exp = document.createElement('h2');
+  exp.style.cssText = "font-size: 120%; margin: 1% 0% 1% 5%;";
+  var brand = document.createElement('p');
+  brand.style.cssText = "font-size: 120%; margin: 1% 0% 0% 5%";
+  var abls = document.createElement('p');
+  abls.style.cssText = "font-size: 160%; margin: auto 0%; margin-left: 5%";
+  var movespar = document.createElement('p');
+  movespar.style.cssText = "font-size: 160%; margin: 1% 0% 1% 5%";
+
+  var populateDetails = function(details){
+    genImage.src = "https://img.pokemondb.net/artwork/" + details.name +".jpg";
+    image.appendChild(genImage);
+    num_name.innerText = "";
+    num_name.innerText = "#" + details.id + " " + details.name.toUpperCase() + "";
+    type.innerText = "Type: " + this.typesOfPokemon(details) + "";
+    height.innerText = "Height: " + details.height;
+    weight.innerText = "Weight: " + details.weight;
+    exp.innerText = "Base experience: " + details.base_experience;
+    brand.innerText = "Favourite brand: " + this.favbrand(details);
+    basicInfo.appendChild(num_name);
+    basicInfo.appendChild(type);
+    basicInfo.appendChild(height);
+    basicInfo.appendChild(weight);
+    basicInfo.appendChild(exp);
+    basicInfo.appendChild(brand);
+
+    abls.innerText = "Abilities : " + this.abilitiesOfPokemon(details);
+    ablsfield.appendChild(abls);
+    movespar.innerText = "Attacks:\n " + this.moves(details);
+    statfield.innerText = "";
+    statfield.appendChild(this.statistics(details));
+    movesfield.appendChild(movespar);
+
+  }
+
+
+  var button = document.getElementById('randomPokemon');
+
+  var handleButtonRandom = function(){
+    var url = "http://pokeapi.co/api/v2/pokemon/" + Math.floor(Math.random()*(385 - 251 +1)+252)+ "";
+
+    var getDetailsRequest = function(url, callback){
+      var request = new XMLHttpRequest();
+      request.open("GET", url);
+      request.onload = callback;
+      request.send();
+    }
+
+    var completeRequest = function(){
+      if(this.status != 200) return;
+      var jsonString = this.responseText;
+      var pokemonDetails = JSON.parse(jsonString);
+      populateDetails(pokemonDetails);
+    }
+    getDetailsRequest(url, completeRequest);
+  }
+
+  button.onclick = handleButtonRandom;
+
   var handleDropdown = function(array){
 
     var list = document.getElementById('list');
     var indexNum = 251;
-
-    var img = document.getElementById('image');
-    var genImage = document.createElement('img');
-    genImage.style.cssText = "max-width: 200px; max-height: 200px";
 
     for(var pokemon of array){
       if(array.indexOf(pokemon) >= 251){
@@ -149,62 +223,13 @@ var app = function(){
       var pokemonDetails = JSON.parse(jsonString);
       populateDetails(pokemonDetails);
       console.log(pokemonDetails);
-      }
+    }
     
     var getPokemon = function(){
       genImage.src = "";
       var pokemon = array[this.value];
       var pokeurl = pokemon.url;
       getDetailsRequest(pokeurl, completeRequest);
-      genImage.src = "https://img.pokemondb.net/artwork/" + pokemon.name +".jpg";
-      image.appendChild(genImage);
-    }
-
-    var basicInfo = document.getElementById('basic_info');
-    var furtherInfo = document.getElementById('bottom');
-    var ablscont = document.getElementById('ablscont');
-    var ablsfield = document.getElementById('abls');
-    var statfield = document.getElementById('statistics');
-    var movesfield = document.getElementById('moves');
-    var num_name = document.createElement('h1');
-    num_name.style.cssText = "font-size: 160%; margin: 1% 0% 1% 5%";
-    var type = document.createElement('h2');
-    type.style.cssText = "font-size: 140%; margin: 1% 0% 1% 5%";
-    var height = document.createElement('h2');
-    height.style.cssText = "font-size: 120%; margin: 1% 0% 1% 5%";
-    var weight = document.createElement('h2');
-    weight.style.cssText = "font-size: 120%; margin: 1% 0% 1% 5%";
-    var exp = document.createElement('h2');
-    exp.style.cssText = "font-size: 120%; margin: 1% 0% 1% 5%;";
-    var brand = document.createElement('p');
-    brand.style.cssText = "font-size: 120%; margin: 1% 0% 0% 5%";
-    var abls = document.createElement('p');
-    abls.style.cssText = "font-size: 160%; margin: auto 0%; margin-left: 5%";
-    var movespar = document.createElement('p');
-    movespar.style.cssText = "font-size: 160%; margin: 1% 0% 1% 5%";
-
-    var populateDetails = function(details){
-      num_name.innerText = "";
-      num_name.innerText = "#" + details.id + " " + details.name.toUpperCase() + "";
-      type.innerText = "Type: " + this.typesOfPokemon(details) + "";
-      height.innerText = "Height: " + details.height;
-      weight.innerText = "Weight: " + details.weight;
-      exp.innerText = "Base experience: " + details.base_experience;
-      brand.innerText = "Favourite brand: " + this.favbrand(details);
-      basicInfo.appendChild(num_name);
-      basicInfo.appendChild(type);
-      basicInfo.appendChild(height);
-      basicInfo.appendChild(weight);
-      basicInfo.appendChild(exp);
-      basicInfo.appendChild(brand);
-
-      abls.innerText = "Abilities : " + this.abilitiesOfPokemon(details);
-      ablsfield.appendChild(abls);
-      movespar.innerText = "Attacks:\n " + this.moves(details);
-      statfield.innerText = "";
-      statfield.appendChild(this.statistics(details));
-      movesfield.appendChild(movespar);
-
     }
 
     list.onchange = getPokemon;

@@ -26,7 +26,7 @@ body{
 }
 
 #display{
-  border: 1px solid black;
+  /*border*/: 1px solid black;
   float: right;
   width: 50%;
   height: 460px;
@@ -49,7 +49,7 @@ body{
   min-height: 210px;
   width: 330px;
   margin: 2% 2% 0% 2%;
-  border: 2px solid white;
+  /*border*/: 2px solid white;
   float: right;
   color: white;
   font-family: Caveat Brush;
@@ -58,7 +58,7 @@ body{
 
 #top{
   height: 230px;
-  border: 1px solid red;
+ /* border:*/ 1px solid red;
   margin-bottom: 0;
 }
 
@@ -99,7 +99,7 @@ body{
 #abls{
    height: 35px;
    /*border*/: 1px solid yellow;
-   width: 545px;
+   width: 560px;
    margin: 0% auto;
    background-color: rgba(48, 41, 27, 0.72);
  }
@@ -114,16 +114,21 @@ body{
 
 #dropdown{
   background-color: rgba(48, 41, 27, 0.72);
-  height: 100px;
+  height: 150px;
   width: 300px;
   color: white;
   margin: 0% auto;
-  margin-top: 24%;
+  margin-top: 12%;
 }
 
 #list select{
   width: 180px;
   font-size: 110%;
   background-color: black;
+}
+
+#buttonRandom{
+  font-size: 110%;
+  font-family: Caveat Brush;
 }
 
