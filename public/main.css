@@ -53,4 +53,26 @@ body{
   height: 230px;
   margin: 2% 0% 0% 0%;
   border: 1px solid black;
+  color: white;
+  font-family: Caveat Brush;
+}
+
+#stats{
+  border: 1px solid pink;
+}
+
+#moves{
+  border: 1px solid yellow;
+  float: right;
+  color: white;
+  font-family: Caveat Brush;
+  width: 63%;
+}
+
+#statistics{
+  color: white;
+  font-family: Caveat Brush;
+  float: left;
+  width: 35%;
+  border: 1px solid blue;
 }

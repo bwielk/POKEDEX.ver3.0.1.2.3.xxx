@@ -1,14 +1,53 @@
 var typesOfPokemon = function(object){
   var types = object.types;
-  var typesString = [];
+  var typesArr = [];
   for(var i = 0; i<types.length; i++){
     if(types.length > 1){
-      typesString.push(types[i].type.name);
+      typesArr.push(types[i].type.name);
     }else{
       return types[i].type.name;
     }
   }
-  return typesString.join(", ");
+  return typesArr.join(", ");
+}
+
+var abilitiesOfPokemon = function(object){
+  var abilities = object.abilities;
+  var abilitiesArr = [];
+  for(var i = 0; i<abilities.length; i++){
+    if(abilities.length > 1){
+      abilitiesArr.push(abilities[i].ability.name);
+    }else{
+      return abilities[i].ability.name;
+    }
+  }
+  return abilitiesArr.join(", ");
+}
+
+var statistics = function(object){
+  var ul = document.createElement('ul');
+  ul.innerText = "Statistics";
+  var statistics = object.stats;
+  var statsArr = [];
+  for(var i =0; i<statistics.length; i++){
+    var li = document.createElement('li');
+    li.style.cssText = "list-style: none";
+    var statname = object.stats[i].stat.name;
+    var statrate = object.stats[i].base_stat;
+    li.innerText = "" + statname + ": " + statrate + ""
+    ul.appendChild(li);
+  }
+  return ul;
+}
+
+var moves = function(object){
+  var p = document.createElement('p');
+  var movesArr = [];
+  for(var i = 0; i<11; i++){
+    var attack = object.moves[i].move.name;
+    movesArr.push(attack);
+  }
+  return p.innerText = movesArr.join(", ");
 }
 
 var app = function(){
@@ -47,7 +86,7 @@ var app = function(){
       var jsonString = this.responseText;
       var pokemonDetails = JSON.parse(jsonString);
       populateDetails(pokemonDetails);
-      console.log(pokemonDetails);
+      console.log(pokemonDetails.moves[1].move.name);
       }
     
     var getPokemon = function(){
@@ -60,6 +99,10 @@ var app = function(){
     }
 
     var basicInfo = document.getElementById('basic_info');
+    var furtherInfo = document.getElementById('bottom');
+    var ablsfield = document.getElementById('abls');
+    var statfield = document.getElementById('statistics');
+    var movesfield = document.getElementById('moves');
     var num_name = document.createElement('h1');
     num_name.style.cssText = "font-size: 200%; margin: 1% 0% 1% 5%";
     var type = document.createElement('h2');
@@ -70,6 +113,11 @@ var app = function(){
     weight.style.cssText = "font-size: 170%; margin: 1% 0% 1% 5%";
     var exp = document.createElement('h2');
     exp.style.cssText = "font-size: 170%; margin: 1% 0% 1% 5%";
+    var abls = document.createElement('p');
+    abls.style.cssText = "font-size: 160%; margin: 1% 0% 1% 5%";
+    var movespar = document.createElement('p');
+    movespar.style.cssText = "font-size: 160%; margin: 1% 0% 1% 5%";
+
 
     var populateDetails = function(details){
       num_name.innerText = "";
@@ -83,6 +131,15 @@ var app = function(){
       basicInfo.appendChild(height);
       basicInfo.appendChild(weight);
       basicInfo.appendChild(exp);
+
+      abls.innerText = "Abilities : " + this.abilitiesOfPokemon(details);
+      ablsfield.appendChild(abls);
+      movespar.innerText = "Attacks:\n " + this.moves(details);
+      statfield.innerText = "";
+      statfield.appendChild(this.statistics(details));
+      movesfield.appendChild(movespar);
+
+      
     }
 
     list.onchange = getPokemon;
