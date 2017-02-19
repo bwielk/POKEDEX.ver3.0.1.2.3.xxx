@@ -1,3 +1,25 @@
+var createLatLang = function(object){
+  var statistics = object.stats;
+  var statsArr = [];
+  for(var i = 0; i<statistics.length; i++){
+    statsArr.push(object.stats[i].base_stat);
+  }
+  var lat = statsArr.slice(0, 3).join("");
+  var lang = statsArr.slice(3,6).join("");
+  var coords = [lat, lang];
+  var newcoords = [] 
+  for(var coord of coords){
+    if(coord.length > 6){
+      parseInt(coord);
+      newcoords.push(coord.slice(0,6));
+    }else{
+      newcoords.push(parseInt(coord));
+    }
+  }
+  console.log(typeof(coords[0]))
+  return newcoords;
+}
+
 
 var typesOfPokemon = function(object){
   var types = object.types;
@@ -158,6 +180,8 @@ var app = function(){
     basicInfo.appendChild(weight);
     basicInfo.appendChild(exp);
     basicInfo.appendChild(brand);
+    var stats = this.createLatLang(details);
+    console.log(stats);
 
     abls.innerText = "Abilities : " + this.abilitiesOfPokemon(details);
     ablsfield.appendChild(abls);
@@ -165,13 +189,13 @@ var app = function(){
     statfield.innerText = "";
     statfield.appendChild(this.statistics(details));
     movesfield.appendChild(movespar);
-
   }
 
 
   var button = document.getElementById('randomPokemon');
 
   var handleButtonRandom = function(){
+
     var url = "http://pokeapi.co/api/v2/pokemon/" + Math.floor(Math.random()*(385 - 251 +1)+252)+ "";
 
     var getDetailsRequest = function(url, callback){
@@ -224,7 +248,7 @@ var app = function(){
       populateDetails(pokemonDetails);
       console.log(pokemonDetails);
     }
-    
+
     var getPokemon = function(){
       genImage.src = "";
       var pokemon = array[this.value];
