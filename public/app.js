@@ -12,7 +12,7 @@ var createLatLang = function(object){
   var newcoords = [] 
   for(var coord of coords){
     if(coord.length > 6){
-      coord = slice(0,6);
+      coords.slice(0,6);
       var newcoord = parseInt(coord)
       newcoord = newcoord/10000;
       newcoords.push(newcoord);
@@ -290,14 +290,14 @@ var app = function(){
 
   /////////////////////////////////////////////////////////MAP//////////////////////////////////////////////////////
 
-  // var initializeMap = function(){
-  //   var container = document.getElementById('main-map');
-  //   var centre = {lat: 0, lng: 0};
-  //   var zoom = 18;
-  //   var map = new MapWrapper(container, centre, zoom);
-  //   map.addMarker(centre);
-  // }
-  // initializeMap();
+  var initializeMap = function(){
+    var container = document.getElementById('main-map');
+    var centre = {lat: 0, lng: 0};
+    var zoom = 18;
+    var map = new MapWrapper(container, centre, zoom);
+    map.addMarker(centre);
+  }
+  initializeMap();
 
   // var locatePokemon = function(){
 

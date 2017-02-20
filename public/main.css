@@ -29,7 +29,7 @@ body{
   /*border*/: 1px solid black;
   float: right;
   width: 50%;
-  height: 490px;
+  height: 460px;
   margin: 1% 4%;
   margin-bottom: 4%;
   background-color: rgba(54, 25, 25, .5);
@@ -134,6 +134,7 @@ body{
 
 #geolocation{
   margin: auto;
+  display: none;
 }
 
 #main-map { /*!!!!!!!!!!display!!!!!!!!!!!!!*/
@@ -141,7 +142,5 @@ body{
   height: 200px;
   border: 1px solid black;
   margin: 0% auto;
-  clear: both;
-  display:none;
 }
 
