@@ -4,7 +4,7 @@ html, body{
 }
 
 body{
-  background-image: url("http://more-sky.com/data/out/7/IMG_147607.png");
+  background-image: url("https://img.wallpapersafari.com/desktop/1440/900/29/81/MTCE96.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
@@ -15,7 +15,7 @@ body{
 }
 #header{
   font-size: 80%;
-  color: black;
+  color: white;
   width: 36%;
   text-align: center;
   margin: auto;
@@ -23,6 +23,8 @@ body{
   float: left;
   letter-spacing: 0.1em;
   margin-left: 5%;
+  background-color: rgba(48, 41, 27, 0.72);
+  margin: 2% 2% 0% 2%;
 }
 
 #display{

@@ -204,7 +204,7 @@ var app = function(){
 
   var handleButtonRandom = function(){
 
-    var url = "http://pokeapi.co/api/v2/pokemon/" + Math.floor(Math.random()*(385 - 251 +1)+252)+ "";
+    var url = "https://pokeapi.co/api/v2/pokemon/" + Math.floor(Math.random()*(385 - 251 +1)+252)+ "";
 
     var getDetailsRequest = function(url, callback){
       var request = new XMLHttpRequest();
